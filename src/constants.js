@@ -30,6 +30,9 @@ import mcLogo from './assets/tech_logo/mc.png';
 import figmaLogo from './assets/tech_logo/figma.png';
 import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
+import aws from './assets/tech_logo/aws.webp';
+import rendor from './assets/tech_logo/rendor.png';
+
 import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
 
@@ -90,6 +93,7 @@ export const SkillsInfo = [
   {
     title: 'Tools',
     skills: [
+    {name : 'rendor' , logo : rendor},
       { name: 'Git', logo: gitLogo },
       { name: 'GitHub', logo: githubLogo },
       { name: 'VS Code', logo: vscodeLogo },
@@ -97,6 +101,8 @@ export const SkillsInfo = [
       { name: 'Compass', logo: mcLogo },
       { name: 'Vercel', logo: vercelLogo },
       { name: 'Netlify', logo: netlifyLogo },
+      { name: 'Aws', logo: aws },
+
       
     ],
   },
