@@ -201,7 +201,7 @@ export const SkillsInfo = [
       image: taskremLogo,
       tags: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/durgeshsharrma/Amazon-Clone-Project",
-      webapp: "https://amazonn-one.vercel.app/",
+      webapp: "https://durgeshsharrma.github.io/Amazon-Clone-Project/",
     },
 
     
