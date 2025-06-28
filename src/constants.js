@@ -51,6 +51,7 @@ import githubdetLogo from './assets/work_logo/github_det.png';
 import csprepLogo from './assets/work_logo/cs_prep.png';
 import movierecLogo from './assets/work_logo/movie_rec.png';
 import taskremLogo from './assets/work_logo/task_rem.png';
+import virtualAssistant from './assets/work_logo/virtualAssistant.png';
 import npmLogo from './assets/work_logo/npm.png';
 import webverLogo from './assets/work_logo/web_dig.png';
 import cmLogo from './assets/work_logo/cm.png';
@@ -164,6 +165,18 @@ export const SkillsInfo = [
   export const projects = [
     {
       id: 0,
+      title: "Vibra - Virtual Assistant",
+      description:
+      "Built an AI-powered virtual assistant using the MERN stack and integrated Google’s Gemini API for intelligent, real-time responses. Supports voice/text commands, secure JWT authentication, and dynamic React UI. Enables natural conversations and smart task handling.",
+      image: virtualAssistant,
+      tags: ["HTML", "CSS", "JavaScript", "React JS", "API" , "Node.Js" , "Express", "MongoDB", "Gemini - API" , "JsonWebToken" , "Tailwind CSS"],
+      github: "https://github.com/durgeshsharrma/virtualAssistant",
+      webapp: "https://virtualassistant-r932.onrender.com/",
+    },
+
+  
+    {
+      id: 1,
       title: "HospiTax - Healthcare Management Platform",
       description:
       "Built a full-stack hospital portal allowing patients to register, login, and book appointments , Implemented authentication for both admin and patients with role - based access, Admins can manage doctors and appointments; patients can view schedules and history and Payment Gateway implemented with Stripe.",
@@ -173,7 +186,7 @@ export const SkillsInfo = [
       webapp: "https://hospitrax.onrender.com/",
     },
     {
-      id: 1,
+      id: 2,
       title: "WanderList - Fond Of Travellers",
       description:
         "A full-stack Resort Booking platform designed for Travellers. The platform offers comprehensive Listing Property and detailed Information About Listing,Also User Can List Thier Property or Resort As admin, helping users to Find their Resorts or place for their journey effectively.",
@@ -183,7 +196,7 @@ export const SkillsInfo = [
       webapp: "https://wanderliistt.onrender.com/",
     },
     {
-      id: 2,
+      id: 3,
       title: "Url Shortner",
       description:
         "Web application that provides Shortend Of Any large url , User can Login and then they can shortend any url. The intuitive design and smooth experience make it a go-to app for anyone looking to simplify their web links.",
@@ -194,7 +207,7 @@ export const SkillsInfo = [
     },
 
     {
-      id: 2,
+      id: 4,
       title: "Amazon Clone",
       description:
         "frontend  clone of Amazon, where users can browse products, add them to their cart, and proceed to checkout. The application features a user-friendly interface, product listings, and a secure payment gateway.",
