@@ -39,6 +39,7 @@ import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Experience Section Logo's
 import webverseLogo from './assets/company_logo/webverse_logo.png';
+import codeSquadzLogo from './assets/company_logo/codesquadz_logo.png';
 import agcLogo from './assets/company_logo/agc_logo.png';
 import newtonschoolLogo from './assets/company_logo/newtonschool_logo.png';
 
@@ -145,7 +146,7 @@ export const SkillsInfo = [
 
 {
       id: 2,
-      img: codeSquadzLogo,
+  img: codeSquadzLogo,
       role: "Full Stack Developer (Apprenticeship)",
       company: "CodeSquadz",
       date: "April 2025 - August 2025",
