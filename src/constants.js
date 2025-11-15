@@ -6,7 +6,7 @@ import javascriptLogo from './assets/tech_logo/javascript.png';
 import reactjsLogo from './assets/tech_logo/reactjs.png';
 import angularLogo from './assets/tech_logo/angular.png';
 import reduxLogo from './assets/tech_logo/redux.png';
-import nextjsLogo from './assets/tech_logo/nextjs.png';
+import nextjs from './assets/tech_logo/nextjs.png';
 import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
 import gsapLogo from './assets/tech_logo/gsap.png';
 import materialuiLogo from './assets/tech_logo/materialui.png';
@@ -32,6 +32,7 @@ import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 import aws from './assets/tech_logo/aws.webp';
 import rendor from './assets/tech_logo/rendor.png';
+import cybercurelogo1 from './assets/company_logo/cybercurelogo1.png';
 
 import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
@@ -67,8 +68,10 @@ export const SkillsInfo = [
       { name: 'CSS', logo: cssLogo },
       { name: 'JavaScript', logo: javascriptLogo },
       { name: 'React JS', logo: reactjsLogo },
+      { name: 'Next JS', logo: nextjs },
       { name: 'Tailwind CSS', logo: tailwindcssLogo }, 
       { name: 'Bootstrap', logo: bootstrapLogo },
+
     ],
   },
   {
@@ -85,7 +88,7 @@ export const SkillsInfo = [
   {
     title: 'Languages',
     skills: [
-      { name: 'C', logo: cLogo },
+    
       { name: 'Java', logo: javaLogo },
       { name: 'JavaScript', logo: javascriptLogo },
       
@@ -110,6 +113,58 @@ export const SkillsInfo = [
 ];
 
   export const experiences = [
+
+
+    
+
+
+
+    {
+  id: 1,
+      img: cybercurelogo1,
+  role: "Full Stack Developer",
+  company: "Cybercure Technologies",
+  date: "Aug 2025 - Present",
+  desc: "Working as a full-stack developer responsible for building scalable web applications, implementing secure authentication, optimizing APIs, and developing responsive UI components. Collaborating with senior developers to enhance system performance, automate workflows, and deliver production-ready features in an agile environment.",
+  skills: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React JS",
+    "Node JS",
+    "Express JS",
+    "MongoDB",
+    "JWT Authentication",
+    "Tailwind",
+    "Git & GitHub",
+    "RESTful APIs"
+  ]
+}
+,
+
+
+{
+      id: 2,
+      img: codeSquadzLogo,
+      role: "Full Stack Developer (Apprenticeship)",
+      company: "CodeSquadz",
+      date: "April 2025 - August 2025",
+      desc: "Completed MERN Stack Development Training at CodeSquadz, where I learned to build and deploy full-stack web applications. Gained hands-on experience with modern technologies like MongoDB, Express.js, React.js, and Node.js while working on real-world project workflows.",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React JS",
+        "Node JS",
+        "Express JS",
+        "MongoDB",
+        "REST APIs",
+        "Git & GitHub",
+        "Tailwind CSS"
+      ]
+    },
+
+
     {
       id: 0,
       img: webverseLogo,
@@ -138,8 +193,8 @@ export const SkillsInfo = [
       img: bsaLogo,
       school: "Rd Engineering College, Ghaziabad",
       date: "june 2021 - june 2025",
-      grade: "73.2%",
-      desc: "I completed my Bachelor's degree in Computer Science (B.Tech.) from Rd Engineering College, Ghaziabad. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at Rd Engineering College allowed me to work on projects that applied theoretical concepts to real-world problems.",
+      grade: "7.01 CGPA",
+      desc: "I Recently completed my Bachelor's degree in Computer Science (B.Tech.) from Rd Engineering College, Ghaziabad. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at Rd Engineering College allowed me to work on projects that applied theoretical concepts to real-world problems.",
       degree: "Bachelor of Technology - B.tech (Computer Science)",
     },
     {
