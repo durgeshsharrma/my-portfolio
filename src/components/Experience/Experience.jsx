@@ -48,13 +48,14 @@ const Experience = () => {
               ${i % 2 === 0 ? "sm:ml-20" : "sm:mr-20"}`}
             >
               {/* Role and Company */}
-              <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex items-center justify-center">
-                <img
-                  src={exp.img}
-                  alt={exp.company}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <div className="flex items-center space-x-5">
+                <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex items-center justify-center">
+                  <img
+                    src={exp.img}
+                    alt={exp.company}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
 
 
                 <div>
