@@ -31,7 +31,7 @@ const Experience = () => {
               }`}
           >
             {/* Timeline Dot */}
-            <div className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:-ml-8 z-20">
+            {/* <div className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:-ml-8 z-20">
               <div className="w-16 h-16 bg-white border-4 border-purple-500 rounded-full shadow-lg overflow-hidden">
                 <img
                   src={exp.img}
@@ -39,7 +39,7 @@ const Experience = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Card */}
             <div
@@ -48,14 +48,14 @@ const Experience = () => {
               ${i % 2 === 0 ? "sm:ml-20" : "sm:mr-20"}`}
             >
               {/* Role and Company */}
-              <div className="flex items-center space-x-5">
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden">
-                  <img
-                    src={exp.img}
-                    alt={exp.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="w-16 h-16 bg-white rounded-md overflow-hidden flex items-center justify-center">
+                <img
+                  src={exp.img}
+                  alt={exp.company}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+
 
                 <div>
                   <h3 className="text-xl sm:text-2xl font-semibold text-white">
