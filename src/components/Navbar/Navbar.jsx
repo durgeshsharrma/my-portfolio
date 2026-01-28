@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Menu, X, Github, Linkedin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,12 +37,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[7vw] ${
-        isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 px-[7vw] md:px-[7vw] lg:px-[7vw] ${isScrolled ? "bg-[#050414]/80 backdrop-blur-md shadow-lg py-4" : "bg-transparent py-5"
+        }`}
     >
-      <div className="text-white py-5 flex justify-between items-center">
+      <div className="text-white flex justify-between items-center">
         {/* Logo */}
         <div className="text-lg font-semibold cursor-pointer">
           <span className="text-[#8245ec]">&lt;</span>
@@ -55,93 +57,96 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-gray-300">
           {menuItems.map((item) => (
-            <li
+            <motion.li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
-              }`}
+              whileHover={{ scale: 1.1, color: "#8245ec" }}
+              className={`cursor-pointer transition-colors ${activeSection === item.id ? "text-[#8245ec]" : ""
+                }`}
             >
               <button onClick={() => handleMenuItemClick(item.id)}>
                 {item.label}
               </button>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
         {/* Social Icons */}
         <div className="hidden md:flex space-x-4">
-          <a
+          <motion.a
             href="https://github.com/durgeshsharrma"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            whileHover={{ scale: 1.2, rotate: 10, color: "#8245ec" }}
+            className="text-gray-300"
           >
-            <FaGithub size={24} />
-          </a>
-          <a
+            <Github size={24} />
+          </motion.a>
+          <motion.a
             href="https://www.linkedin.com/in/durgesh-sharma-62a25b222/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            whileHover={{ scale: 1.2, rotate: -10, color: "#8245ec" }}
+            className="text-gray-300"
           >
-            <FaLinkedin size={24} />
-          </a>
+            <Linkedin size={24} />
+          </motion.a>
         </div>
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
+          <button onClick={() => setIsOpen(!isOpen)} className="text-[#8245ec]">
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu Items */}
-      {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
-            {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>
-                  {item.label}
-                </button>
-              </li>
-            ))}
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/durgeshsharrma"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/durgesh-sharma-62a25b222/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </div>
-          </ul>
-        </div>
-      )}
-    </nav>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="absolute top-full left-0 w-full bg-[#050414]/95 backdrop-blur-xl border-b border-white/10 overflow-hidden md:hidden shadow-2xl"
+          >
+            <ul className="flex flex-col items-center space-y-6 py-8 text-gray-300">
+              {menuItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`cursor-pointer hover:text-white text-xl ${activeSection === item.id ? "text-[#8245ec]" : ""
+                    }`}
+                >
+                  <button onClick={() => handleMenuItemClick(item.id)}>
+                    {item.label}
+                  </button>
+                </motion.li>
+              ))}
+              <div className="flex space-x-6 mt-4">
+                <a
+                  href="https://github.com/durgeshsharrma"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <Github size={28} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/durgesh-sharma-62a25b222/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <Linkedin size={28} />
+                </a>
+              </div>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

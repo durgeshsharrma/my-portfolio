@@ -1,7 +1,40 @@
-import React from 'react';
-import ReactTypingEffect from 'react-typing-effect';
-import Tilt from 'react-parallax-tilt';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import profileImage from '../../assets/profile2.jpg';
+
+const Typewriter = ({ words, speed = 150, delay = 2000 }) => {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+
+  useEffect(() => {
+    if (index === words.length) return;
+
+    if (subIndex === words[index].length + 1 && !reverse) {
+      setTimeout(() => setReverse(true), delay);
+      return;
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, reverse ? speed / 2 : speed);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, words, speed, delay]);
+
+  return (
+    <span className="text-[#8245ec]">
+      {words[index].substring(0, subIndex)}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+};
 
 const About = () => {
   return (
@@ -11,29 +44,33 @@ const About = () => {
     >
       <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-12">
         {/* Left Side */}
-        <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="md:w-1/2 text-center md:text-left"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2"
+          >
             Hi, I am
-          </h1>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+          </motion.h1>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4"
+          >
             Durgesh Sharma
-          </h2>
+          </motion.h2>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#8245ec] mb-6">
             <span className="text-white">I am a </span>
-            <ReactTypingEffect
-              text={[
-                'Fullstack Developer',
-                'MERN Fullstack Developer',
-                'Web Developer',
-                'Coder',
-              ]}
-              speed={100}
-              eraseSpeed={50}
-              typingDelay={500}
-              eraseDelay={2000}
-              cursorRenderer={(cursor) => (
-                <span className="text-[#8245ec]">{cursor}</span>
-              )}
+            <Typewriter
+              words={['Fullstack Developer', 'MERN Stack Expert', 'Web Designer', 'Coder']}
             />
           </h3>
 
@@ -43,38 +80,50 @@ const About = () => {
             user experiences and efficient solutions.
           </p>
 
-          <a
+          <motion.a
             href="https://drive.google.com/file/d/19ja4pEFMbIr1RqGsGjqzYp2KnoZcrCzI/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-white py-3 px-8 rounded-full text-lg font-bold transition-transform duration-300 hover:scale-105"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(130, 69, 236, 0.6)" }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block text-white py-3 px-8 rounded-full text-lg font-bold transition-all duration-300"
             style={{
               background: 'linear-gradient(90deg, #8245ec, #a855f7)',
               boxShadow: '0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec',
             }}
           >
             DOWNLOAD CV
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         {/* Right Side */}
-        <div className="md:w-1/2 flex justify-center">
-          <Tilt
-            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[26rem] md:h-[26rem] border-4 border-[#8245ec] rounded-full shadow-lg"
-            tiltMaxAngleX={20}
-            tiltMaxAngleY={20}
-            perspective={1000}
-            scale={1.05}
-            transitionSpeed={1000}
-            gyroscope={true}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="md:w-1/2 flex justify-center"
+        >
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[26rem] md:h-[26rem] border-4 border-[#8245ec] rounded-full shadow-lg relative overflow-hidden"
           >
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-transparent z-10"></div>
             <img
               src={profileImage}
               alt="Durgesh Sharma"
               className="w-full h-full rounded-full object-cover drop-shadow-[0_10px_20px_rgba(130,69,236,0.5)]"
             />
-          </Tilt>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

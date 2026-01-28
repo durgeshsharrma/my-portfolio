@@ -1,5 +1,6 @@
 import React from "react";
 import { education } from "../../constants"; // Import the education data
+import { motion } from "framer-motion";
 
 const Education = () => {
   return (
@@ -8,14 +9,20 @@ const Education = () => {
       className="py-24 px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-3"
     >
       {/* Section Title */}
-      <div className="text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
         <h2 className="text-4xl font-bold text-white">EDUCATION</h2>
         <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
         <p className="text-gray-400 mt-4 text-lg font-semibold max-w-3xl mx-auto">
           My education has been a journey of learning and development. Here are
           the details of my academic background
         </p>
-      </div>
+      </motion.div>
 
       {/* Education Timeline */}
       <div className="relative">
@@ -24,8 +31,12 @@ const Education = () => {
 
         {/* Education Entries */}
         {education.map((edu, index) => (
-          <div
+          <motion.div
             key={edu.id}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
             className={`flex flex-col sm:flex-row items-center mb-16 relative z-10 ${index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
               }`}
           >
@@ -40,11 +51,11 @@ const Education = () => {
 
             {/* Content Section */}
             <div
-              className={`w-full sm:max-w-md p-6 sm:p-8 rounded-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] 
+              className={`w-full sm:max-w-md p-6 sm:p-8 rounded-2xl border border-white bg-gray-900/80 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] 
               ${index % 2 === 0
                   ? "sm:ml-20 sm:mr-0"
                   : "sm:mr-20 sm:ml-0"
-                } mt-16 sm:mt-0 transform transition-transform duration-300 hover:scale-105`}
+                } mt-16 sm:mt-0 transform transition-all duration-300 hover:scale-105 hover:border-purple-500/50`}
             >
               {/* Flex container for image and text */}
               <div className="flex items-center space-x-4 sm:space-x-6">
@@ -72,7 +83,7 @@ const Education = () => {
               </p>
               <p className="mt-3 text-gray-400">{edu.desc}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

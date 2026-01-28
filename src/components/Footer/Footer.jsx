@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   // Smooth scroll function
@@ -28,7 +28,7 @@ const Footer = () => {
             <button
               key={index}
               onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
+              className="hover:text-purple-500 text-sm sm:text-base my-1 transition-colors"
             >
               {item.name}
             </button>
@@ -36,14 +36,10 @@ const Footer = () => {
         </nav>
 
         {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center space-x-4 mt-6">
+        <div className="flex flex-wrap justify-center space-x-6 mt-6">
           {[
-        
-       
-            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/durgesh-sharma-62a25b222/" },
-            { icon: <FaInstagram />, link: "https://www.instagram.com/durgeshsharrma/" },
-            
-            
+            { icon: <Linkedin size={24} />, link: "https://www.linkedin.com/in/durgesh-sharma-62a25b222/" },
+            { icon: <Instagram size={24} />, link: "https://www.instagram.com/durgeshsharrma/" },
           ].map((item, index) => (
             <a
               key={index}
