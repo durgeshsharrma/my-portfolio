@@ -81,7 +81,7 @@ const About = () => {
           </p>
 
           <motion.a
-            href="https://drive.google.com/file/d/19ja4pEFMbIr1RqGsGjqzYp2KnoZcrCzI/view"
+            href="https://drive.google.com/file/d/10PHiqrlEYzsyYCthfLcEG6ShVSpv8KWu/view"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(130, 69, 236, 0.6)" }}
